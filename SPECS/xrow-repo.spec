@@ -32,7 +32,7 @@ install -dm 755 $RPM_BUILD_ROOT/etc/yum.repos.d
 cat <<EOL > $RPM_BUILD_ROOT/etc/yum.repos.d/xrow.repo
 [xrow]
 name=xrow GmbH
-baseurl=http://packages.xrow.com/redhat/6
+baseurl=http://packages.xrow.com/redhat/7
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-XROW
 
