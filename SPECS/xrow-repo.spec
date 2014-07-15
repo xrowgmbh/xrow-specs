@@ -1,7 +1,7 @@
 Name: xrow-repo
 Summary: The eZ Publish repository of the xrow GmbH
 Version: 2.2
-Release: ${_release}
+Release: %{_release}
 License: GPL
 Group: Applications/Webservice
 URL: http://packages.xrow.com/redhat
