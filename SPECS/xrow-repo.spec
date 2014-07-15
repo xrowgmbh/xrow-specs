@@ -15,11 +15,11 @@ BuildRoot: %{_tmppath}/%{name}-root
 BuildArch: noarch
 
 %description
-The eZ Publish repository of the xrow GmbH
+The RPM repository of the xrow GmbH
 
 install with
 
-yum install http://packages.xrow.com/redhat/xrow-repo-2.2-35.noarch.rpm
+yum install http://packages.xrow.com/redhat/xrow-repo-3.0-35.noarch.rpm
 
 %build
 
@@ -33,13 +33,6 @@ name=xrow GmbH
 baseurl=http://packages.xrow.com/redhat/7
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-XROW
-
-[xrow-opt]
-name=xrow GmbH
-baseurl=http://packages.xrow.com/redhat/opt
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-XROW
-enabled=0
 
 [varnish]
 name=Varnish for Enterprise Linux
