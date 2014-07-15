@@ -10,8 +10,6 @@ Vendor: xrow GmbH
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
 Requires: yum
 Requires: yum-utils
-#Fedora has no epel 
-#Requires: epel-release
 
 BuildRoot: %{_tmppath}/%{name}-root
 BuildArch: noarch
