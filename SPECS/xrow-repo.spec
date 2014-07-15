@@ -1,6 +1,6 @@
 Name: xrow-repo
 Summary: The eZ Publish repository of the xrow GmbH
-Version: 2.2
+Version: 3.0
 Release: %{_release}
 License: GPL
 Group: Applications/Webservice
