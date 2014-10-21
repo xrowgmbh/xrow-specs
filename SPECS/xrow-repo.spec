@@ -40,20 +40,6 @@ baseurl=http://repo.varnish-cache.org/redhat/varnish-4.0/el6/\$basearch
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-VARNISH
 
-[zend-server]
-name = ZendServer \$basearch
-baseurl = http://repos.zend.com/zend-server/6.1/rpm/\$basearch
-gpgcheck = 0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZEND
-exclude=mod-php-5.2* php-5.2* zend-server-php-5.2* mod-php-5.4* php-5.4* zend-server-php-5.4*
-
-[zend-server-noarch]
-name = ZendServer Noarch
-baseurl = http://repos.zend.com/zend-server/6.1/rpm/noarch
-gpgcheck = 0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZEND
-exclude=mod-php-5.2* php-5.2* zend-server-php-5.2*
-
 #[jenkins]
 #name=Jenkins-stable
 #baseurl=http://pkg.jenkins-ci.org/redhat-stable
@@ -105,38 +91,6 @@ OzAMFCId2/QIxNJl4uKsX6aOvs/ZR3jslefEzu4Km/wbth6xFuPzgFav/uF8K7Xc
 UJh/2fDF4rvzitHkcqkwxX6fFy3wVOnPnhKMX5+zwIWlDCZFtYlvR1inOsAHrjmV
 11iQ6L/bJfwsU2v2
 =R3aw
------END PGP PUBLIC KEY BLOCK-----
-EOL
-
-cat <<EOL > $RPM_BUILD_ROOT/etc/pki/rpm-gpg/RPM-GPG-KEY-ZEND
------BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v1.4.6 (GNU/Linux)
-
-mQGiBEe61V8RBACJlJWWqexTVbbwqzEoUn1r85C5U1WA+ndCI4x7bK2Cd3Ljqvu5
-iHPkvYG2buwynS0bHwPgA9XFWlB4KTN6sC11W93fNqvqmIRnyl0i6yEJ2+Fh0Jac
-w4jqdKqfQ7MdlRWRzepcPbhn5YD4v7z7/B5L8f/RurOy8qkNsMexelBrmwCg5M0f
-Y7HsJuVt3xdzFTu3b+Qg4H0D/A7fXDsTdXSOmOsdSSqNJRV7DmrMP5JlFsZKjcPj
-4uMuW8toKZ1i3eloqALM1le/rl6OUm1ObgJRMWeWwxtjHV+OV+iTIufwWX5zcMZO
-v6AKOAhLX+G0KMgp96vwAWexSUlEvEqt5rblRKcTsxryasi5DiEu1OiNkVCIk8Yh
-dxvRA/wJTV4NPFpPkjy6f88x8XA91NOQh/+GAGtX+lOLdKqZ/aaViKdKDT0dQsj5
-h1UHLQ31c2PuHVm+yYUhKsEARITrEy/rB2jDA5iAa2cAByHn3POKPwqbTeC7FbA5
-O+OpcKts3w5UcbSceRAbJRqD854mIPCmpMqasnsz4htR5ra4rLQeSW5mcmEgdGVh
-bSA8enAtaW5mcmFAemVuZC5jb20+iF4EExECAB4FAke61V8CGwMGCwkIBwMCAxUC
-AwMWAgECHgECF4AACgkQLq4UN/fSxiPXPQCgvpmYf6aDGYmgWzPVDdsGrOd+3SkA
-oNo8B6nraoQvTEeIjAH3fojyp89VuQINBEe61WsQCACE8ocfxyTjwgrxXeiBUn4F
-c1xn0PnXFFdweCY0IYaCsRtuEPbVolTg6YoA3oZpH9BnLRmZuGgHFd5eLmaECWXr
-MtkrYmCH+E83YUMLwDzHxMpVPMdnKJBfuTv5vNRD04Qwz97GeJBO+XBWVO83ylAa
-J4tg0PciSPlFIFKuZCs/6YBobqNUKCPGQ4kQPpbIlvjd/InfLY41BMQAw00EMIVT
-Ieljfk+ADb/P/naWG+TClgNvX7UEKvrqjyBh2ACGTEkOQLSPDl5mIC9KYjsB+Bww
-EItgeFNPez7Qwusz9DPGS+9G8q0p4oEjOYbwCIVk7gyq4VhoUcGflhtiWFZfO9Rr
-AAMGB/4yTr5uPaR/sPvK5kdJVPqJkL+VKU3bploMPXVVyINtwHlAXphYE9FIw1Uu
-83Jr8kKpxPSoicD6cB9UOlWtDHOgMiBIyFI/Qk6bsV9aBhPm53bWMPieg3DfXQpo
-Wdu1ElriUriuMRQR1bd3yDLDXEqocazI47LW8ZPNB17jANfK0SOXs7cqlMy6nk/C
-eaKyll7/NnyVeqh6Q9IPxNR8WbeehH5hSeyohCNyJEVkhuqC6LKNKTj6e6VXksXg
-2ZXMk1ioiTKwlPIz6uN/skBuGi8n+QtvXMfZ6xKoA0rUksg4bwat4K+Bl8h/8zmR
-CivuVPRVKoTjkJgDKeCuAYSEo/oEiEkEGBECAAkFAke61WsCGwwACgkQLq4UN/fS
-xiPpfQCgu/TK50ZZr/HgTluQtPboGS8dICAAoK2BMGAPcid0XFQIhyYufijBa7/T
-=7oFK
 -----END PGP PUBLIC KEY BLOCK-----
 EOL
 
