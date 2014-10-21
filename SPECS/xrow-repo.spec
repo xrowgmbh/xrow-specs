@@ -46,13 +46,6 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-VARNISH
 #gpgcheck=1
 #gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-JENKINS
 
-#down 
-#[opengeo]
-#name=opengeo
-#baseurl=http://yum.opengeo.org/suite/v4/centos/6/x86_64
-#enabled=0
-#gpgcheck=0
-
 [s3tools]
 name=Tools for managing Amazon S3 - Simple Storage Service (RHEL_6)
 type=rpm-md
