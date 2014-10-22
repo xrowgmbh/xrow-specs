@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+## rpm-build-sign.exp -- Sign RPMs by sending the passphrase.
+set timeout -1 
+set password [lindex $argv 0]
+eval spawn rpmbuild -ba --sign [lrange $argv 1 end]
+expect -exact "Enter pass phrase: "
+send -- "$password\r"
+expect eof
