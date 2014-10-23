@@ -1,3 +1,6 @@
+%global commit 1eddf92c3535aff2beaf9331f4240f5b75ec0f56
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
 Name:           s3fs-fuse
 Version:        1.77
 Release:        1%{?dist}
@@ -5,8 +8,8 @@ Summary:        FUSE-based file system backed by Amazon S3
 Group:          System Environment/Base
 
 License:        GPLv2
-URL:            https://github.com/s3fs-fuse/s3fs-fuse
-Source0         https://github.com/s3fs-fuse/s3fs-fuse/archive/%{name}-%{version}.tar.gz
+URL:            https://github.com/s3fs-fuse/%{name}
+Source0:        https://github.com/s3fs-fuse/%{name}/archive/%{commit}/s3fs-fuse-%{commit}.tar.gz
 Source1:        passwd-s3fs
 
 
@@ -33,7 +36,7 @@ rsync backup to s3.
 %global debug_package %{nil}
 
 %prep
-%setup -q
+%setup -qn %{name}-%{commit}
 
 
 %build
