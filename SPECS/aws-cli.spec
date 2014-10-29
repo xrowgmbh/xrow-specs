@@ -7,9 +7,6 @@ Group:          System/Management
 Url:            https://github.com/aws/aws-cli
 Source0:        https://github.com/aws/%{name}/archive/%{version}.tar.gz
 Requires:       python
-%if 0%{?suse_version} && 0%{?suse_version} <= 1110
-Requires:       python-argparse >= 1.1
-%endif
 Requires:       python-bcdoc    >= 0.12.0
 Requires:       python-botocore >= 0.67.0
 Requires:       python-colorama >= 0.2.5
@@ -27,7 +24,6 @@ The AWS Command Line Interface (CLI) is a unified tool to manage your AWS servic
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 python setup.py build
