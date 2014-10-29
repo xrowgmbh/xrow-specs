@@ -36,10 +36,10 @@ rm %{buildroot}/%{_bindir}/aws.cmd
 %files
 %defattr(-,root,root,-)
 %doc CHANGELOG.rst LICENSE.txt README.rst
-%dir %{python_sitelib}/awscli
-%dir %{python_sitelib}/awscli-%{version}-py%{py_ver}.egg-info
+%dir %{python_sitelib}/aws-cli
+%dir %{python_sitelib}/aws-cli-%{version}-py%{py_ver}.egg-info
 %{_bindir}/*
-%{python_sitelib}/awscli/*
+%{python_sitelib}/aws-cli/*
 %{python_sitelib}/*egg-info/*
 
 %changelog
