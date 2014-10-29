@@ -6,7 +6,6 @@ License:        Apache-2.0
 Group:          System/Management
 Url:            https://github.com/aws/aws-cli
 Source0:        https://github.com/aws/%{name}/archive/%{version}.tar.gz
-Patch0:         hide_py_pckgmgmt.patch
 Requires:       python
 %if 0%{?suse_version} && 0%{?suse_version} <= 1110
 Requires:       python-argparse >= 1.1
