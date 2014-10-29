@@ -108,6 +108,7 @@ fi
 # Compat symlinks
 %{_bindir}/fusermount
 %{_bindir}/ulockmgr_server
+/usr/share/man/*
 %config %{_sysconfdir}/udev/rules.d/99-fuse.rules
 
 %files libs
