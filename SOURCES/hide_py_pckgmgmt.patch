@@ -1,0 +1,41 @@
+Index: aws-cli-1.2.13/setup.py
+===================================================================
+--- aws-cli-1.2.13.orig/setup.py
++++ aws-cli-1.2.13/setup.py
+@@ -6,17 +6,17 @@ from setuptools import setup, find_packa
+ import awscli
+ 
+ 
+-requires = ['botocore>=0.67.0,<0.68.0',
+-            'bcdoc>=0.12.0,<0.13.0',
+-            'six>=1.1.0',
+-            'colorama==0.2.5',
+-            'docutils>=0.10',
+-            'rsa==3.1.2']
++#requires = ['botocore>=0.67.0,<0.68.0',
++#            'bcdoc>=0.12.0,<0.13.0',
++#            'six>=1.1.0',
++#            'colorama==0.2.5',
++#            'docutils>=0.10',
++#            'rsa==3.1.2']
+ 
+-if sys.version_info[:2] == (2, 6):
+-    # For python2.6 we have to require argparse since it
+-    # was not in stdlib until 2.7.
+-    requires.append('argparse>=1.1')
++#if sys.version_info[:2] == (2, 6):
++#    # For python2.6 we have to require argparse since it
++#    # was not in stdlib until 2.7.
++#    requires.append('argparse>=1.1')
+ 
+ 
+ setup_options = dict(
+@@ -33,7 +33,7 @@ setup_options = dict(
+     package_dir={'awscli': 'awscli'},
+     package_data={'awscli': ['data/*.json', 'examples/*/*.rst',
+                              'examples/*/*/*.rst']},
+-    install_requires=requires,
++#    install_requires=requires,
+     license="Apache License 2.0",
+     classifiers=(
+         'Development Status :: 5 - Production/Stable',
