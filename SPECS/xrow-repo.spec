@@ -1,10 +1,10 @@
 Name: xrow-repo
-Summary: The eZ Publish repository of the xrow GmbH
-Version: 3.0
+Summary: The repository of the xrow GmbH
+Version: 7.0
 Release: 1
 License: GPL
 Group: Applications/Webservice
-URL: http://packages.xrow.com/redhat
+URL: https://github.com/xrowgmbh/xrow-specs
 Distribution: Linux
 Vendor: xrow GmbH
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
@@ -17,10 +17,6 @@ BuildArch: noarch
 %description
 The RPM repository of the xrow GmbH
 
-install with
-
-yum install http://packages.xrow.com/redhat/xrow-repo-3.0-35.noarch.rpm
-
 %build
 
 %install
@@ -30,7 +26,7 @@ install -dm 755 $RPM_BUILD_ROOT/etc/yum.repos.d
 cat <<EOL > $RPM_BUILD_ROOT/etc/yum.repos.d/xrow.repo
 [xrow]
 name=xrow GmbH
-baseurl=http://packages.xrow.com/redhat/7
+baseurl=https://s3.amazonaws.com/xrow-files/repo/CentOS/7/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-XROW
 
