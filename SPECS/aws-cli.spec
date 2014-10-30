@@ -7,7 +7,6 @@ Group:          System/Management
 Url:            https://github.com/aws/aws-cli
 Source0:        https://github.com/aws/%{name}/archive/%{version}.tar.gz
 Requires:       python
-Requires:       python-bcdoc    >= 0.12.0
 Requires:       python-boto >= 0.67.0
 Requires:       python-docutils
 Requires:       python-rsa
