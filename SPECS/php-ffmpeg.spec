@@ -62,7 +62,7 @@ make install INSTALL_ROOT=$RPM_BUILD_ROOT
 
 # install config file
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/php.d
-install -d $RPM_BUILD_ROOT/usr/local/zend/etc/conf.d
+install -d $RPM_BUILD_ROOT/etc/conf.d
 cat > $RPM_BUILD_ROOT%{_sysconfdir}/php.d/%{name}.ini << 'EOF'
 ; --- Enable %{name} extension module
 extension=ffmpeg.so
@@ -71,7 +71,7 @@ extension=ffmpeg.so
 ;ffmpeg.allow_persistent = 0
 ;ffmpeg.show_warnings = 0
 EOF
-cp $RPM_BUILD_ROOT%{_sysconfdir}/php.d/%{name}.ini $RPM_BUILD_ROOT/usr/local/zend/etc/conf.d 
+cp $RPM_BUILD_ROOT%{_sysconfdir}/php.d/%{name}.ini $RPM_BUILD_ROOT/etc/conf.d 
 
 %check
 # should be run after install
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc ChangeLog CREDITS EXPERIMENTAL LICENSE TODO test_ffmpeg.php
 %config(noreplace) %{_sysconfdir}/php.d/%{name}.ini
-%config(noreplace) /usr/local/zend/etc/conf.d/%{name}.ini
+%config(noreplace) /etc/conf.d/%{name}.ini
 %{php_extdir}/ffmpeg.so
 
 
