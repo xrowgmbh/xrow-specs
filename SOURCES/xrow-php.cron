@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -d /var/lib/php/session ] && find /var/lib/php/session -type f -cmin +2592000 -print0 | xargs -r -0 rm
+
