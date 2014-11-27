@@ -70,7 +70,6 @@ sed -i "s/:\/usr\/local\/zend\/share\/ZendFramework\/library//g" %{_PHPDIR}etc/p
 sed -i "s/;extension=memcached.so/extension=memcached.so/g" %{_PHPDIR}etc/php.d/memcached.ini
 sed -i "s/extension=memcache.so/;extension=memcache.so/g" %{_PHPDIR}etc/php.d/memcache.ini
 sed -i "s/;extension=ssh2.so/extension=ssh2.so/g" %{_PHPDIR}etc/php.d/ssh2.ini
-sed -i "s/^extension=apc.so/;extension=apc.so/g" %{_PHPDIR}etc/php.d/apc.ini
 
 if [ -f /etc/httpd/conf.d/php.conf ]
 then
