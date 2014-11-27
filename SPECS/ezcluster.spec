@@ -25,6 +25,7 @@ Requires: libxslt-devel
 Requires: varnish >= 4.0
 Requires(pre): /usr/sbin/useradd
 Requires(postun): /usr/sbin/userdel
+BuildRequires: /usr/bin/composer
 
 BuildRoot: %{_tmppath}/%{name}-root
 BuildArch: noarch
