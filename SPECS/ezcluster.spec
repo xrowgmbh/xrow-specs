@@ -34,7 +34,7 @@ BuildArch: noarch
 rm -rf $RPM_BUILD_ROOT
 
 git clone https://github.com/xrowgmbh/ezcluster $RPM_BUILD_ROOT%{_datadir}/ezcluster
-cp $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
+mv $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
 
 /usr/bin/composer update -d $RPM_BUILD_ROOT%{_datadir}/ezcluster
 #for f in $RPM_BUILD_ROOT%{_datadir}/ezcluster/schema/*.xsd
