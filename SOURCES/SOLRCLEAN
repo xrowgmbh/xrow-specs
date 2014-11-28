@@ -1,0 +1,47 @@
+#!/usr/bin/php
+<?php
+$now = time();
+sleep( 5 );
+
+$SOLR_HOME = '/var/ezfind/';
+$indexfile = $SOLR_HOME . 'index.properties';
+if ( ! file_exists( $indexfile ) )
+{
+    die( "no index file" );
+}
+
+$data = file( $indexfile );
+foreach ( $data as $row )
+{
+    
+    if ( strpos( $row, 'index=' ) === 0 )
+    {
+        $current = trim ( substr( $row, strpos( $row, 'index=' ) + 6 ) );
+        break;
+    }
+}
+if ( ! isset( $current ) or ! $current or ! is_dir( $SOLR_HOME . $current ) )
+{
+    die( "no active index dir not found" );
+}
+
+$dir = new DirectoryIterator( dirname( $indexfile ) );
+foreach ( $dir as $fileinfo )
+{
+    
+    if ( $fileinfo->isDot() )
+    {
+        continue;
+    }
+    
+    if ( strpos( $fileinfo->getFilename(), 'index.' ) !== false and 
+    			 $fileinfo->getFilename() != $current and 
+    			 $fileinfo->getFilename() != $indexfile and 
+    			 $fileinfo->getCTime() < $now and 
+    			 $fileinfo->isDir() )
+    {
+        system( "rm -rf " . $SOLR_HOME . $fileinfo->getFilename() );
+    }
+
+}
+exit( 0 );
