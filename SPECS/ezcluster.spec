@@ -60,9 +60,9 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/*   
-%{_datadir}/ezcluster/*         
-%{_datadir}/ezcluster/.svn*
-%{_bindir}/*       
+%{_datadir}/ezcluster/*
+%{_datadir}/ezcluster/.git*
+%{_bindir}/*
 %attr(777, root, root) /var/www/sites
 %attr(755, root, root) %{_sysconfdir}/rc.d/init.d/ezcluster
 %attr(440, root, root) %{_sysconfdir}/sudoers.d/ezcluster
