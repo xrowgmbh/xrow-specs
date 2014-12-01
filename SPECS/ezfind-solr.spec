@@ -1,7 +1,7 @@
 Summary: eZ Find Solr Service
 Name: ezfind-solr
-Epoch: 53
-Version: 5.3
+Epoch: 54
+Version: 5.4
 Release: 41
 License: GPL
 Group: Applications/Webservice
@@ -16,7 +16,7 @@ Vendor: eZ Systems
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
 Requires: java-1.7.0-openjdk
 Conflicts: ezfind-solr23 ezfind-solr25 ezfind-solr27 ezfind-solr50  ezfind-solr51 ezfind-solr52 
-Conflicts: ezfind-solr > 52:5.2
+Conflicts: ezfind-solr < 54:5.4
 
 BuildRoot: %{_tmppath}/%{name}-root
 BuildArch: noarch
@@ -27,7 +27,7 @@ eZ Find Solr Service
 rm -Rf ezfind-%{version}
 env GIT_SSL_NO_VERIFY=true git clone https://github.com/ezsystems/ezfind.git ezfind-%{version}
 cd ezfind-%{version}
-git checkout fe1f982cf36790fcbff0d72eb08586ccda5a167f
+git checkout 38304f26c07cb9f342dae60b58a9a21040c79a32
 cd ..
 rm -Rf ezfind-%{version}/.git
 rm -Rf ezfind-%{version}/.gitignore
