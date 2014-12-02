@@ -1,5 +1,5 @@
 Name:           aws-cli
-Version:        1.5.4
+Version:        1.6.5
 Release:        0
 Summary:        Amazon Web Services Command Line Interface
 License:        Apache-2.0
@@ -7,12 +7,12 @@ Group:          System/Management
 Url:            https://github.com/aws/aws-cli
 Source0:        https://github.com/aws/%{name}/archive/%{version}.tar.gz
 Requires:       python
-Requires:       python-bcdoc    >= 0.12.0
-Requires:       python-botocore >= 0.67.0
-Requires:       python-colorama >= 0.2.5
-Requires:       python-docutils >= 0.10
-Requires:       python-rsa      >= 3.1.2
-Requires:       python-six      >= 1.1.0
+Requires:       python-bcdoc
+Requires:       python-botocore
+#Requires:       python-colorama
+Requires:       python-docutils
+Requires:       python-rsa
+Requires:       python-six
 BuildRequires:  python
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
