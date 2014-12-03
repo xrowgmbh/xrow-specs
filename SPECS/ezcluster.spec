@@ -66,6 +66,7 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %{_sysconfdir}/profile.d/ezcluster.sh
 %{_sysconfdir}/varnish/ezcluster.vcl
 %{_sysconfdir}/ezcluster/ezcluster.xml.dist
+%{_sysconfdir}/httpd/sites/environment.conf
 %dir %{_sysconfdir}/httpd/sites    
 %{_datadir}/ezcluster/*         
 %{_datadir}/ezcluster/.git*
