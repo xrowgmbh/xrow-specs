@@ -17,7 +17,7 @@ Conflicts: xrow-psa
 Conflicts: mod_ssl
 #When bulding a new image
 #Requires: libuuid-devel qemu-img
-Requires: httpd haproxy mod-pagespeed ntp aws-cli nfs-utils nfs4-acl-tools sudo varnish autofs dkms
+Requires: httpd haproxy ntp nfs-utils nfs4-acl-tools sudo varnish autofs dkms
 Requires: selinux-policy yum-cron
 Requires: php
 # for veewee
@@ -109,7 +109,6 @@ sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_S
 # All Apache settings
 sed -i "s/^Listen 80$/#Listen 80/g" /etc/httpd/conf/httpd.conf
 sed -i "s/^LogFormat \"%h/LogFormat \"%{X-Forwarded-For}i/g" /etc/httpd/conf/httpd.conf
-sed -i "s/ModPagespeed on/ModPagespeed off/g" /etc/httpd/conf.d/pagespeed.conf
 
 sed -i "s/^Defaults    requiretty/#Defaults    requiretty/g" /etc/sudoers
 
