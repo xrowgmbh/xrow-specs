@@ -35,6 +35,7 @@ BuildArch: noarch
 rm -rf $RPM_BUILD_ROOT
 
 git clone https://github.com/xrowgmbh/ezcluster $RPM_BUILD_ROOT%{_datadir}/ezcluster
+find $RPM_BUILD_ROOT%{_datadir}/ezcluster -name ".keep" -delete
 mv $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
 
 /usr/bin/composer update -d $RPM_BUILD_ROOT%{_datadir}/ezcluster
@@ -59,7 +60,13 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 
 %files
 %defattr(-,root,root,-)
-%{_sysconfdir}/*   
+%{_sysconfdir}/httpd/conf.d/xrow.conf
+%{_sysconfdir}/httpd/conf.d/ezcluster.conf
+%{_sysconfdir}/logrotate.d/ezcluster
+%{_sysconfdir}/profile.d/ezcluster.sh
+%{_sysconfdir}/varnish/ezcluster.vcl
+%{_sysconfdir}/ezcluster/ezcluster.xml.dist
+%dir %{_sysconfdir}/httpd/sites    
 %{_datadir}/ezcluster/*         
 %{_datadir}/ezcluster/.git*
 %{_bindir}/*
@@ -99,7 +106,6 @@ sed -i "s/#compress/compress/g" /etc/logrotate.conf
 #sed -i "s/UseDNS yes/UseDNS no/g" /etc/ssh/sshd_config
 #very wrong
 #sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
-sed -i "s/127.0.0.1/0.0.0.0/g" /usr/share/ezfind/etc/jetty.xml
 sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/sysconfig/varnish
 sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/sysconfig/varnish
 sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_STORAGE_SIZE\}\"/g" /etc/sysconfig/varnish
