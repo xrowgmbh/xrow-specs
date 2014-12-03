@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 
 git clone https://github.com/xrowgmbh/ezcluster $RPM_BUILD_ROOT%{_datadir}/ezcluster
 find $RPM_BUILD_ROOT%{_datadir}/ezcluster -name ".keep" -delete
-mv $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
+cp -R $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
 
 /usr/bin/composer update -d $RPM_BUILD_ROOT%{_datadir}/ezcluster
 #for f in $RPM_BUILD_ROOT%{_datadir}/ezcluster/schema/*.xsd
