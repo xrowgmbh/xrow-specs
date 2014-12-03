@@ -60,7 +60,7 @@ cp $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/schema.xml $RPM_BUILD
 sed -i '/type="text_icu"/d' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/schema.xml
 sed -i '/<fieldType name="text_icu" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="false">/,/<\/fieldType>/d' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/schema.xml
 
-sed -i "s/confFiles\"\>elevate.xml/confFiles\"\>schema.xml,elevate.xml,stopwords.txt/g" $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/schema.xml
+sed -i 's@<str name=\"confFiles\">.*@<str name=\"confFiles\">schema.xml,elevate.xml,stopwords.txt</str>@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
 
 sed -i '
 /<\/fields>/ i\
