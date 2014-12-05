@@ -51,7 +51,8 @@ rm -Rf $RPM_BUILD_ROOT%{_datadir}/ezcluster/drafts
 rm -Rf $RPM_BUILD_ROOT%{_datadir}/ezcluster/build
 
 mkdir -p $RPM_BUILD_ROOT/var/www/sites
-
+mkdir -p $RPM_BUILD_ROOT/mnt/storage
+mkdir -p $RPM_BUILD_ROOT/mnt/nas
 
 mkdir $RPM_BUILD_ROOT%{_bindir}
 cp $RPM_BUILD_ROOT%{_datadir}/ezcluster/ezcluster $RPM_BUILD_ROOT%{_bindir}/ezcluster
