@@ -40,7 +40,7 @@ function makeCores {
   cp -R $SOLR_HOME/solr/ezp-default/conf/* $DATA_DIR/cores/$CORE/conf
   cp -R $SOLR_HOME/solr/ezp-default/conf/* $DATA_DIR/cores/$CORE/
   sed -i "s@<dataDir>\${solr.data.dir:}</dataDir>@<dataDir>$DATA_DIR/cores/$CORE/data</dataDir>@g" $DATA_DIR/cores/$CORE/conf/solrconfig.xml
-  sed -i 's@<str name=\"masterUrl\">.*@<str name=\"masterUrl\">${solr.master.url}'"$CORE"'</str>@g' $DATA_DIR/cores/$CORE/conf/solrconfig.xml
+  sed -i 's@<str name=\"masterUrl\">.*@<str name=\"masterUrl\">${solr.master.url:http\://localhost\:8983/solr/}${solr.core.name}</str>@g' $DATA_DIR/cores/$CORE/conf/solrconfig.xml
   done
  echo "</cores>" >> $DATA_DIR/cores/solr.xml
  echo "</solr>" >> $DATA_DIR/cores/solr.xml
