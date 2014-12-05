@@ -68,6 +68,7 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %{_sysconfdir}/varnish/ezcluster.vcl
 %{_sysconfdir}/ezcluster/ezcluster.xml.dist
 %{_sysconfdir}/httpd/sites/environment.conf
+%{_sysconfdir}/cloud/cloud.cfg.d/ezcluster.cfg
 %dir %{_sysconfdir}/httpd/sites    
 %{_datadir}/ezcluster/*         
 %{_datadir}/ezcluster/.git*
@@ -75,6 +76,8 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %attr(777, root, root) /var/www/sites
 %attr(755, root, root) %{_sysconfdir}/rc.d/init.d/ezcluster
 %attr(440, root, root) %{_sysconfdir}/sudoers.d/ezcluster
+%dir /mnt/nas
+%dir /mnt/storage
 
 %pre
 
@@ -91,23 +94,10 @@ fi
 
 if [ "$1" -eq "1" ]; then
 
-mkdir -p /mnt/nas
-mkdir -p /mnt/storage
-chmod 777 /mnt/nas
-chmod 777 /mnt/storage
-
-# drbd needs this for gfs
-sed -i "s/locking_type = 1/locking_type = 3/g" /etc/lvm/lvm.conf
-
 #logrotate
 sed -i "s/weekly/daily/g" /etc/logrotate.conf
 sed -i "s/#compress/compress/g" /etc/logrotate.conf
 
-# all SSH need revisit
-#sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config
-#sed -i "s/UseDNS yes/UseDNS no/g" /etc/ssh/sshd_config
-#very wrong
-#sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/varnish/varnish.params
 sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/varnish/varnish.params
 sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_STORAGE_SIZE\}\"/g" /etc/varnish/varnish.params
