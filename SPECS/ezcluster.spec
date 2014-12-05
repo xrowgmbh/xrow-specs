@@ -108,9 +108,9 @@ sed -i "s/#compress/compress/g" /etc/logrotate.conf
 #sed -i "s/UseDNS yes/UseDNS no/g" /etc/ssh/sshd_config
 #very wrong
 #sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
-sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/sysconfig/varnish
-sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/sysconfig/varnish
-sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_STORAGE_SIZE\}\"/g" /etc/sysconfig/varnish
+sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/varnish/varnish.params
+sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/varnish/varnish.params
+sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_STORAGE_SIZE\}\"/g" /etc/varnish/varnish.params
 
 #sed -i "s/PACKAGE_SETUP=yes/PACKAGE_SETUP=no/g" /etc/sysconfig/cloud-init
 
