@@ -51,6 +51,8 @@ install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/ezfind-solr
 
 cp $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml.dist
 
+sed -i "s/127.0.0.1/0.0.0.0/g" $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml
+
 sed -i 's/<SystemProperty name="jetty.logs" default=".\/logs"\/>/<SystemProperty name="jetty.logs" default="\/var\/log\/ezfind"\/>/g' $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml 
 
 cp $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml.dist

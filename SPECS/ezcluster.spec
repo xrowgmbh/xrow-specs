@@ -17,7 +17,7 @@ Conflicts: xrow-psa
 Conflicts: mod_ssl
 #When bulding a new image
 #Requires: libuuid-devel qemu-img
-Requires: httpd haproxy mod-pagespeed ntp aws-cli nfs-utils nfs4-acl-tools sudo varnish autofs dkms
+Requires: httpd haproxy ntp nfs-utils nfs4-acl-tools sudo varnish autofs dkms
 Requires: selinux-policy yum-cron
 Requires: php
 # for veewee
@@ -35,7 +35,8 @@ BuildArch: noarch
 rm -rf $RPM_BUILD_ROOT
 
 git clone https://github.com/xrowgmbh/ezcluster $RPM_BUILD_ROOT%{_datadir}/ezcluster
-mv $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
+find $RPM_BUILD_ROOT%{_datadir}/ezcluster -name ".keep" -delete
+cp -R $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
 
 /usr/bin/composer update -d $RPM_BUILD_ROOT%{_datadir}/ezcluster
 #for f in $RPM_BUILD_ROOT%{_datadir}/ezcluster/schema/*.xsd
@@ -59,7 +60,14 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 
 %files
 %defattr(-,root,root,-)
-%{_sysconfdir}/*   
+%{_sysconfdir}/httpd/conf.d/xrow.conf
+%{_sysconfdir}/httpd/conf.d/ezcluster.conf
+%{_sysconfdir}/logrotate.d/ezcluster
+%{_sysconfdir}/profile.d/ezcluster.sh
+%{_sysconfdir}/varnish/ezcluster.vcl
+%{_sysconfdir}/ezcluster/ezcluster.xml.dist
+%{_sysconfdir}/httpd/sites/environment.conf
+%dir %{_sysconfdir}/httpd/sites    
 %{_datadir}/ezcluster/*         
 %{_datadir}/ezcluster/.git*
 %{_bindir}/*
@@ -99,7 +107,6 @@ sed -i "s/#compress/compress/g" /etc/logrotate.conf
 #sed -i "s/UseDNS yes/UseDNS no/g" /etc/ssh/sshd_config
 #very wrong
 #sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
-sed -i "s/127.0.0.1/0.0.0.0/g" /usr/share/ezfind/etc/jetty.xml
 sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/sysconfig/varnish
 sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/sysconfig/varnish
 sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_STORAGE_SIZE\}\"/g" /etc/sysconfig/varnish
@@ -109,7 +116,6 @@ sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc,\$\{VARNISH_S
 # All Apache settings
 sed -i "s/^Listen 80$/#Listen 80/g" /etc/httpd/conf/httpd.conf
 sed -i "s/^LogFormat \"%h/LogFormat \"%{X-Forwarded-For}i/g" /etc/httpd/conf/httpd.conf
-sed -i "s/ModPagespeed on/ModPagespeed off/g" /etc/httpd/conf.d/pagespeed.conf
 
 sed -i "s/^Defaults    requiretty/#Defaults    requiretty/g" /etc/sudoers
 
