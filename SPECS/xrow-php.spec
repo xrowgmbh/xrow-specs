@@ -66,8 +66,7 @@ sed -i "s/max_execution_time[[:blank:]]*=.*$/max_execution_time = 60/g" %{_PHPDI
 sed -i "s/zend_debugger.expose_remotely=2/zend_debugger.expose_remotely=0/g" %{_PHPDIR}etc/php.d/debugger.ini
 sed -i "s/\/usr\/lib\/sendmail/\/usr\/sbin\/sendmail/g" %{_PHPDIR}etc/php.ini
 sed -i "s/:\/usr\/local\/zend\/share\/ZendFramework\/library//g" %{_PHPDIR}etc/php.ini
-sed -i "s/;extension=memcached.so/extension=memcached.so/g" %{_PHPDIR}etc/php.d/memcached.ini
-sed -i "s/extension=memcache.so/;extension=memcache.so/g" %{_PHPDIR}etc/php.d/memcache.ini
+sed -i "s/;extension=memcached.so/extension=memcached.so/g" %{_PHPDIR}etc/php.d/z-memcached.ini
 sed -i "s/;extension=ssh2.so/extension=ssh2.so/g" %{_PHPDIR}etc/php.d/ssh2.ini
 
 if [ -f /etc/httpd/conf.d/php.conf ]
