@@ -82,10 +82,7 @@ fi
 %preun          
 
 if [ $1 -eq 0 ]; then
- if [ -f /usr/local/zend/etc/conf.d/debugger.ini.disabled ] 
- then
-  mv /usr/local/zend/etc/conf.d/debugger.ini.disabled /usr/local/zend/etc/conf.d/debugger.ini
- fi
+
  RETVAL='rpm -qa php'  
  if [ "$RETVAL" != "" ] && [ -f /etc/httpd/conf.d/php.conf ]
  then
@@ -102,7 +99,6 @@ if [ $1 -eq 0 ]; then
  sed -i "s/memory_limit = 512M/memory_limit = 128M/g" %{_PHPDIR}etc/php.ini
  sed -i "s/;date.timezone =/date.timezone =Europe\/Berlin/g" %{_PHPDIR}etc/php.ini
  sed -i "s/max_execution_time = 60/max_execution_time = 30/g" %{_PHPDIR}etc/php.ini
- sed -i "s/zend_debugger.expose_remotely=0/zend_debugger.expose_remotely=2/g" %{_PHPDIR}etc/php.d/debugger.ini
 fi
 
 %clean
