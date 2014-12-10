@@ -133,7 +133,7 @@ chkconfig haproxy off
 
 fi
 
-chkconfig autofs on
+systemctl enable autofs.service
 
 
 rm -Rf /tmp/.compilation/
