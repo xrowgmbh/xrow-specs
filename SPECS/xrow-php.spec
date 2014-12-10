@@ -63,7 +63,6 @@ sed -i "s/post_max_size[[:blank:]]*=.*$/post_max_size = 50M/g" %{_PHPDIR}etc/php
 sed -i "s/memory_limit[[:blank:]]*=.*$/memory_limit = 1024M/g" %{_PHPDIR}etc/php.ini
 sed -i "s/;date.timezone[[:blank:]]*=.*$/date.timezone =Europe\/Berlin/g" %{_PHPDIR}etc/php.ini
 sed -i "s/max_execution_time[[:blank:]]*=.*$/max_execution_time = 60/g" %{_PHPDIR}etc/php.ini
-sed -i "s/zend_debugger.expose_remotely=2/zend_debugger.expose_remotely=0/g" %{_PHPDIR}etc/php.d/debugger.ini
 sed -i "s/\/usr\/lib\/sendmail/\/usr\/sbin\/sendmail/g" %{_PHPDIR}etc/php.ini
 sed -i "s/:\/usr\/local\/zend\/share\/ZendFramework\/library//g" %{_PHPDIR}etc/php.ini
 sed -i "s/;extension=memcached.so/extension=memcached.so/g" %{_PHPDIR}etc/php.d/z-memcached.ini
