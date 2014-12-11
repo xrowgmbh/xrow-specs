@@ -61,7 +61,7 @@ chmod +x $RPM_BUILD_ROOT%{_datadir}/ezcluster/ezcluster
 chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 
 %files
-%defattr(-,root,root,-)
+%defattr(644,root,root,755)
 %{_sysconfdir}/httpd/conf.d/xrow.conf
 %{_sysconfdir}/httpd/conf.d/ezcluster.conf
 %{_sysconfdir}/logrotate.d/ezcluster
@@ -71,9 +71,11 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %{_sysconfdir}/httpd/sites/environment.conf
 %{_sysconfdir}/cloud/cloud.cfg.d/ezcluster.cfg
 %dir %{_sysconfdir}/httpd/sites    
-%{_datadir}/ezcluster/*         
+%{_datadir}/ezcluster/*
 %{_datadir}/ezcluster/.git*
-%{_bindir}/*
+%attr(755, root, root) %{_bindir}/*
+%attr(755, root, root) %{_datadir}/ezcluster/bin/tools/*
+%attr(755, root, root) %{_datadir}/ezcluster/bin/ezcluster
 %attr(777, root, root) /var/www/sites
 %attr(755, root, root) %{_sysconfdir}/rc.d/init.d/ezcluster
 %attr(440, root, root) %{_sysconfdir}/sudoers.d/ezcluster
