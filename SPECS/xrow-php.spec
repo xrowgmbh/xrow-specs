@@ -14,7 +14,7 @@ Requires(pre): policycoreutils-python
 Requires(pre): php
 Requires: httpd autoconf
 Requires: php
-Requires: php-devel php-bcmath php-devel php-enchant php-fpm php-gd php-imap php-intl php-ldap php-mbstring php-mysqlnd php-pdo php-pear php-process php-pspell php-soap php-tidy php-xml php-xmlrpc
+Requires: php-devel php-bcmath php-devel php-enchant php-fpm php-gd php-imap php-intl php-ldap php-mbstring php-mysql php-pdo php-pear php-process php-pspell php-soap php-tidy php-xml php-xmlrpc
 Requires: php-pecl-ssh2 php-pecl-memcached php-pecl-http php-pecl-xdebug php-pecl-zendopcache
 Source0: xrow-php.cron
 
