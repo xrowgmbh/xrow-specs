@@ -1,7 +1,7 @@
 Name: xrow-repo
 Summary: The repository of the xrow GmbH
 Version: 7.0
-Release: 1
+Release: 2
 License: GPL
 Group: Applications/Webservice
 URL: https://github.com/xrowgmbh/xrow-specs
