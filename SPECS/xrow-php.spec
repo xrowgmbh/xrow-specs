@@ -95,7 +95,7 @@ if [ $1 -eq 0 ]; then
  sed -i "s/short_open_tag = Off/short_open_tag = On/g" %{_PHPDIR}etc/php.ini 
  sed -i "s/upload_max_filesize = 50M/upload_max_filesize = 2M/g" %{_PHPDIR}etc/php.ini
  sed -i "s/post_max_size = 50M/post_max_size = 8M/g" %{_PHPDIR}etc/php.ini
- sed -i "s/memory_limit = 512M/memory_limit = 128M/g" %{_PHPDIR}etc/php.ini
+ sed -i "s/memory_limit = 1024M/memory_limit = 128M/g" %{_PHPDIR}etc/php.ini
  sed -i "s/;date.timezone =/date.timezone =Europe\/Berlin/g" %{_PHPDIR}etc/php.ini
  sed -i "s/max_execution_time = 60/max_execution_time = 30/g" %{_PHPDIR}etc/php.ini
 fi
