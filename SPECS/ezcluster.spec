@@ -39,7 +39,7 @@ git clone https://github.com/xrowgmbh/ezcluster $RPM_BUILD_ROOT%{_datadir}/ezclu
 git --git-dir $RPM_BUILD_ROOT%{_datadir}/ezcluster/.git config core.filemode false
 find $RPM_BUILD_ROOT%{_datadir}/ezcluster -name ".keep" -delete
 cp -R $RPM_BUILD_ROOT%{_datadir}/ezcluster/etc $RPM_BUILD_ROOT%{_sysconfdir}
-git --git-dir $RPM_BUILD_ROOT%{_datadir}/ezcluster/.git --work-tree $RPM_BUILD_ROOT%{_datadir}/ezcluster stash
+git --git-dir $RPM_BUILD_ROOT%{_datadir}/ezcluster/.git stash
 
 /usr/bin/composer update -d $RPM_BUILD_ROOT%{_datadir}/ezcluster
 #for f in $RPM_BUILD_ROOT%{_datadir}/ezcluster/schema/*.xsd
