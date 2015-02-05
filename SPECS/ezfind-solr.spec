@@ -2,7 +2,7 @@ Summary: eZ Find Solr Service
 Name: ezfind-solr
 Epoch: 54
 Version: 5.4
-Release: 5
+Release: 6
 License: GPL
 Group: Applications/Webservice
 Source1: ezfind.initd
