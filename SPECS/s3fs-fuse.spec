@@ -3,7 +3,7 @@
 
 Name:           s3fs-fuse
 Version:        1.77
-Release:        4%{?dist}
+Release:        7%{?dist}
 Summary:        FUSE-based file system backed by Amazon S3
 Group:          System Environment/Base
 
