@@ -3,7 +3,7 @@
 Name: xrow-php
 Summary: Tweaks for PHP 5.4
 Version: 5.4
-Release: 10
+Release: 11
 License: GPL
 Group: Applications/Webservice
 URL: http://packages.xrow.com/redhat
