@@ -3,7 +3,7 @@
 
 Name:           php-zend-debugger
 Version:        6.0
-Release:        1
+Release:        2
 Summary:        Extension to debug PHP
 
 Group:          Development/Languages
