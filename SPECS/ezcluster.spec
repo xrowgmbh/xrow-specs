@@ -79,7 +79,7 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %attr(755, root, root) %{_datadir}/ezcluster/bin/tools/*
 %attr(755, root, root) %{_datadir}/ezcluster/bin/ezcluster
 %attr(777, root, root) /var/www/sites
-%attr(755, root, root) %{_sysconfdir}/rc.d/init.d/ezcluster
+%attr(644, root, root) %{_sysconfdir}/systemd/system/ezcluster.service
 %attr(440, root, root) %{_sysconfdir}/sudoers.d/ezcluster
 %dir /mnt/nas
 %dir /mnt/storage
@@ -120,20 +120,17 @@ sed -i '
 Listen 8080\
 ' /etc/httpd/conf/httpd.conf
 
-/sbin/chkconfig --add ezcluster
+systemctl enable ezcluster.service
 
-chkconfig postfix off
-chkconfig httpd off 
-chkconfig varnish off 
-chkconfig nfs off
-chkconfig nfslock off
-chkconfig drbd off
-chkconfig ezfind-solr off
-chkconfig mysql off
-chkconfig sendmail off
-chkconfig xfs off
-chkconfig varnish off
-chkconfig haproxy off
+systemctl disable postfix
+systemctl disable httpd 
+systemctl disable varnish 
+systemctl disable nfs
+systemctl disable nfslock
+systemctl disable ezfind-solr
+systemctl disable mariadb
+systemctl disable varnish
+systemctl disable haproxy
 
 fi
 
@@ -156,16 +153,15 @@ if [ "$1" -eq "0" ]; then
    sed -i "s/^#Listen 80/Listen 80/g" /etc/httpd/conf/httpd.conf
    sed -i "s/^LogFormat \"%{X-Forwarded-For}i/LogFormat \"%h/g" /etc/httpd/conf/httpd.conf
    sed -i "s/^#Defaults    requiretty/Defaults    requiretty/g" /etc/sudoers
-   /sbin/service ezcluster stop > /dev/null 2>&1
-   /sbin/chkconfig --del ezcluster
+   systemctl stop ezcluster.service
+   systemctl disable ezcluster.service
 fi
 
 
 %postun
  
 if [ "$1" -eq "0" ]; then
-   chkconfig httpd on
-   /sbin/service httpd stop > /dev/null 2>&1
+   systemctl enable httpd
    /usr/sbin/userdel ec2-user
 fi
 rm -Rf /tmp/.compilation/
