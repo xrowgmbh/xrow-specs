@@ -30,6 +30,7 @@ Tweaks for PHP
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 
 curl -s https://getcomposer.org/installer | /usr/bin/php -- --install-dir=$RPM_BUILD_ROOT%{_bindir} --filename=composer
+curl -LsS http://symfony.com/installer -o $RPM_BUILD_ROOT%{_bindir}/symfony
 curl -s http://pear2.php.net/pyrus.phar -o $RPM_BUILD_ROOT%{_bindir}/pyrus.phar
 
 mkdir -p $RPM_BUILD_ROOT/usr/share/magallanes
