@@ -69,6 +69,7 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %{_sysconfdir}/logrotate.d/ezcluster
 %{_sysconfdir}/profile.d/ezcluster.sh
 %{_sysconfdir}/varnish/ezcluster.vcl
+%{_sysconfdir}/varnish/ezpublish.vcl
 %{_sysconfdir}/ezcluster/ezcluster.xml.dist
 %{_sysconfdir}/httpd/sites/environment.conf
 %{_sysconfdir}/cloud/cloud.cfg.d/ezcluster.cfg
