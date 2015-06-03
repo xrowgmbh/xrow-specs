@@ -77,7 +77,8 @@ then
  sed -i "s/DirectoryIndex/#DirectoryIndex/g" /etc/httpd/conf.d/php.conf
 fi
 
-#sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
+# Update composer after install
+/usr/bin/composer self-update
 
 %preun          
 
