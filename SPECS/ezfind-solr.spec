@@ -14,7 +14,7 @@ URL: http://ez.no/ezfind
 Distribution: Linux
 Vendor: eZ Systems
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
-Requires: java-1.8.0-openjdk-headless
+Requires: java-1.8.0-openjdk
 Conflicts: ezfind-solr23 ezfind-solr25 ezfind-solr27 ezfind-solr50  ezfind-solr51 ezfind-solr52 
 Conflicts: ezfind-solr < 54:5.4
 
