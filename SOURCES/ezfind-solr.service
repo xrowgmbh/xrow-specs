@@ -1,0 +1,16 @@
+# Needs more thought !
+# Wait and see what happens to SOLR next within eZ.
+
+[Unit]
+Description=Solr Application Server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/usr/share/ezfind
+User=ezfind
+ExecStart=/usr/bin/java -Dsolr.solr.home=${SOLR_HOME} -Djetty.home=${SOLR_HOME} -Dsolr.data.dir=/var/ezfind/cores ${PARAMETERS} -jar $applDir/start.jar
+ExecStop=/usr/bin/java stop.jboss
+
+[Install]
+WantedBy=multi-user.target
