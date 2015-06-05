@@ -14,7 +14,7 @@ URL: http://ez.no/ezfind
 Distribution: Linux
 Vendor: eZ Systems
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
-Requires: java-1.7.0-openjdk
+Requires: java-1.8.0-openjdk-headless
 Conflicts: ezfind-solr23 ezfind-solr25 ezfind-solr27 ezfind-solr50  ezfind-solr51 ezfind-solr52 
 Conflicts: ezfind-solr < 54:5.4
 
@@ -27,7 +27,7 @@ eZ Find Solr Service
 rm -Rf ezfind-%{version}
 env GIT_SSL_NO_VERIFY=true git clone https://github.com/ezsystems/ezfind.git ezfind-%{version}
 cd ezfind-%{version}
-git checkout 38304f26c07cb9f342dae60b58a9a21040c79a32
+git checkout b003a48f7fde3553ecc21365c837aac669ee6478
 cd ..
 rm -Rf ezfind-%{version}/.git
 rm -Rf ezfind-%{version}/.gitignore
