@@ -1,7 +1,7 @@
 Name: ezcluster
 Summary: The eZ Cluster of the xrow GmbH
 Version: 2.0
-Release: 39
+Release: 40
 License: GPL
 Group: Applications/Webservice
 URL: http://packages.xrow.com/redhat
