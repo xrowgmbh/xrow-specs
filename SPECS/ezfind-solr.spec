@@ -64,6 +64,13 @@ sed -i '/<fieldType name="text_icu" class="solr.TextField" positionIncrementGap=
 
 sed -i 's@<str name=\"confFiles\">.*@<str name=\"confFiles\">schema.xml,elevate.xml,stopwords.txt</str>@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
 
+sed -i 's@<useColdSearcher>.*@<useColdSearcher>true</useColdSearcher>@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
+sed -i 's@<maxWarmingSearchers>.*@<maxWarmingSearchers>1</maxWarmingSearchers>@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
+
+sed -i 's@<filterCache class=\"solr.FastLRUCache\".*@<filterCache class=\"solr.FastLRUCache\" size=\"512\" initialSize=\"512\" autowarmCount=\"32\" />@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
+sed -i 's@<queryResultCache class=\"solr.LRUCache\".*@<queryResultCache class=\"solr.LRUCache\" size=\"512\" initialSize=\"512\" autowarmCount=\"32\" />@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
+
+
 sed -i '
 /<\/fields>/ i\
 <dynamicField name="*____loc" type="location" indexed="true" stored="true"\/>\
