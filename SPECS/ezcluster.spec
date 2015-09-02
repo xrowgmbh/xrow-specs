@@ -87,13 +87,9 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 
 %pre
 
-grep "^ec2-user:" /etc/group &> /dev/null
-if [ $? -ne "0" ]; then
-    groupadd -g 222 ec2-user
-fi
 grep "^ec2-user:" /etc/passwd &> /dev/null
 if [ $? -ne "0" ]; then
-    useradd -m -u 222 -g ec2-user -G wheel,ec2-user -c "Cloud Default User" ec2-user
+    useradd -m -u 222 -g ec2-user -G apache -c "Cloud Default User" ec2-user
 fi
 
 %post
