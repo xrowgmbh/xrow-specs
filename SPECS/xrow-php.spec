@@ -34,7 +34,7 @@ curl -LsS http://symfony.com/installer -o $RPM_BUILD_ROOT%{_bindir}/symfony
 curl -s http://pear2.php.net/pyrus.phar -o $RPM_BUILD_ROOT%{_bindir}/pyrus.phar
 
 mkdir -p $RPM_BUILD_ROOT/usr/share/magallanes
-wget https://github.com/andres-montanez/Magallanes/archive/master.zip -O magallanes.zip
+wget https://github.com/xrowgmbh/Magallanes/archive/master.zip -O magallanes.zip
 unzip magallanes.zip
 mv Magallanes-master/* $RPM_BUILD_ROOT/usr/share/magallanes
 ln -sf /usr/share/magallanes/bin/mage ${RPM_BUILD_ROOT}/%{_bindir}
