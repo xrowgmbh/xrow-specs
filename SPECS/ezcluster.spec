@@ -94,7 +94,7 @@ if [ $? -eq "0" ]; then
 fi
 grep "^ec2-user:" /etc/passwd &> /dev/null
 if [ $? -ne "0" ]; then
-    useradd -m -u 222 -g ec2-user -G apache -c "Cloud Default User" ec2-user
+    useradd -m -u 222 -g apache -c "Cloud Default User" ec2-user
 fi
 usermod -g apache ec2-user
 
