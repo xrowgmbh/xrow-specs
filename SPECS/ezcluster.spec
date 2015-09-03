@@ -87,15 +87,16 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 
 %pre
 
-
+# delete obsolete group
 grep "^ec2-user:" /etc/group &> /dev/null
-if [ $? -ne "0" ]; then
+if [ $? -eq "0" ]; then
     groupdel ec2-user
 fi
 grep "^ec2-user:" /etc/passwd &> /dev/null
 if [ $? -ne "0" ]; then
     useradd -m -u 222 -g ec2-user -G apache -c "Cloud Default User" ec2-user
 fi
+usermod -g apache ec2-user
 
 %post
 
