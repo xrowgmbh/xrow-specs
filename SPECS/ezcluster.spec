@@ -119,20 +119,7 @@ Listen 8080\
 
 systemctl enable ezcluster.service
 
-systemctl disable postfix
-systemctl disable httpd 
-systemctl disable varnish 
-systemctl disable nfs
-systemctl disable nfslock
-systemctl disable ezfind-solr
-systemctl disable mariadb
-systemctl disable varnish
-systemctl disable haproxy
-
 fi
-
-systemctl enable autofs.service
-
 
 rm -Rf /tmp/.compilation/
 
@@ -158,7 +145,6 @@ fi
 %postun
  
 if [ "$1" -eq "0" ]; then
-   systemctl enable httpd
    /usr/sbin/userdel ec2-user
 fi
 rm -Rf /tmp/.compilation/
