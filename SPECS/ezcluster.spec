@@ -68,8 +68,6 @@ chmod +x $RPM_BUILD_ROOT%{_bindir}/ezcluster
 %{_sysconfdir}/httpd/conf.d/ezcluster.conf
 %{_sysconfdir}/logrotate.d/ezcluster
 %{_sysconfdir}/profile.d/ezcluster.sh
-%{_sysconfdir}/varnish/ezcluster.vcl
-%{_sysconfdir}/varnish/ezpublish.vcl
 %{_sysconfdir}/ezcluster/ezcluster.xml.dist
 %{_sysconfdir}/httpd/sites/environment.conf
 %{_sysconfdir}/cloud/cloud.cfg.d/ezcluster.cfg
@@ -105,10 +103,6 @@ if [ "$1" -eq "1" ]; then
 #logrotate
 sed -i "s/weekly/daily/g" /etc/logrotate.conf
 sed -i "s/#compress/compress/g" /etc/logrotate.conf
-
-sed -i "s/VARNISH_LISTEN_PORT[[:blank:]]*=.*$/VARNISH_LISTEN_PORT=80/g" /etc/varnish/varnish.params
-sed -i "s/VARNISH_VCL_CONF[[:blank:]]*=.*$/VARNISH_VCL_CONF=\/etc\/varnish\/ezcluster.vcl/g" /etc/varnish/varnish.params
-sed -i "s/VARNISH_STORAGE[[:blank:]]*=.*$/VARNISH_STORAGE=\"malloc\"/g" /etc/varnish/varnish.params
 
 #sed -i "s/PACKAGE_SETUP=yes/PACKAGE_SETUP=no/g" /etc/sysconfig/cloud-init
 
