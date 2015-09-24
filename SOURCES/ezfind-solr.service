@@ -1,16 +1,16 @@
-# Needs more thought !
-# Wait and see what happens to SOLR next within eZ.
+# TODO Parameters missing
 
 [Unit]
 Description=Solr Application Server
 After=syslog.target network.target
 
 [Service]
-Type=forking
+Type=simple
+EnvironmentFile=/etc/sysconfig/ezfind
 WorkingDirectory=/usr/share/ezfind
 User=ezfind
-ExecStart=/usr/bin/java -Dsolr.solr.home=${SOLR_HOME} -Djetty.home=${SOLR_HOME} -Dsolr.data.dir=/var/ezfind/cores ${PARAMETERS} -jar $applDir/start.jar
-ExecStop=/usr/bin/java stop.jboss
+PIDFile=/var/run/jetty.pid
+ExecStart=/usr/bin/java -Dsolr.solr.home=/usr/share/ezfind -Djetty.home=/usr/share/ezfind -Dsolr.data.dir=/var/ezfind/cores -Djetty.logs=/usr/share/ezfind/logs -Djava.io.tmpdir=/tmp -jar /usr/share/ezfind/start.jar
 
 [Install]
 WantedBy=multi-user.target
