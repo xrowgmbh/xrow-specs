@@ -10,7 +10,7 @@ EnvironmentFile=/etc/sysconfig/ezfind
 WorkingDirectory=/usr/share/ezfind
 User=ezfind
 PIDFile=/var/run/jetty.pid
-ExecStart=/usr/bin/java -Dsolr.solr.home=/usr/share/ezfind -Djetty.home=/usr/share/ezfind -Dsolr.data.dir=/var/ezfind/cores -Djetty.logs=/usr/share/ezfind/logs -Djava.io.tmpdir=/tmp -jar /usr/share/ezfind/start.jar
+ExecStart=/usr/bin/java -Dsolr.solr.home=/usr/share/ezfind -Djetty.home=/usr/share/ezfind -Dsolr.data.dir=/var/ezfind/cores -Djetty.logs=/var/log/ezfind -Djava.io.tmpdir=/tmp -jar /usr/share/ezfind/start.jar
 
 [Install]
 WantedBy=multi-user.target
