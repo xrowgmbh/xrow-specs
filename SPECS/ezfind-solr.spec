@@ -5,7 +5,7 @@ Version: 5.4
 Release: 11
 License: GPL
 Group: Applications/Webservice
-Source1: ezfind.systemd
+Source1: ezfind.initd
 Source2: stopwords.txt
 Source3: mysql-connector-java-5.1.15-bin.jar
 Source4: SOLRCLEAN
@@ -15,8 +15,6 @@ Distribution: Linux
 Vendor: eZ Systems
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
 Requires: java-1.8.0-openjdk
-Requires: systemd
-BuildRequires: systemd
 Conflicts: ezfind-solr23 ezfind-solr25 ezfind-solr27 ezfind-solr50  ezfind-solr51 ezfind-solr52 
 Conflicts: ezfind-solr < 54:5.4
 
@@ -40,6 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}
 mkdir -p $RPM_BUILD_ROOT%{_var}/ezfind
 mkdir -p $RPM_BUILD_ROOT%{_var}/log/ezfind
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/ezfind/solr-webapp
 
@@ -48,7 +47,7 @@ cp %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/stopwords.
 cp %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/lib/mysql-connector-java-5.1.15-bin.jar
 cp %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/bin/SOLRCLEAN
 cp %{SOURCE5} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/ezfind
-install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/systemd/systemd/ezfind-solr.service
+install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/ezfind-solr
 
 cp $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml $RPM_BUILD_ROOT%{_datadir}/ezfind/etc/jetty.xml.dist
 
@@ -107,14 +106,14 @@ fi
 
 %post
 if [ $1 -eq 1 ]; then
-    systemctl enable ezfind-solr
+    /sbin/chkconfig --add ezfind-solr
 fi
 
 %preun
 if [ $1 -eq 0 ]; then
    echo "Final removal of SOLR"
    /sbin/service ezfind-solr stop > /dev/null 2>&1
-   systemctl disable ezfind-solr
+   /sbin/chkconfig --del ezfind-solr
 fi 
 
 %postun
