@@ -27,7 +27,7 @@ eZ Find Solr Service
 rm -Rf ezfind-%{version}
 env GIT_SSL_NO_VERIFY=true git clone https://github.com/ezsystems/ezfind.git ezfind-%{version}
 cd ezfind-%{version}
-git checkout b003a48f7fde3553ecc21365c837aac669ee6478
+git checkout f46a315f2fa117e79611f399de1a70e3bc286cc9
 cd ..
 rm -Rf ezfind-%{version}/.git
 rm -Rf ezfind-%{version}/.gitignore
