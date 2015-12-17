@@ -70,6 +70,8 @@ sed -i 's@<maxWarmingSearchers>.*@<maxWarmingSearchers>1</maxWarmingSearchers>@g
 sed -i 's@<filterCache class=\"solr.FastLRUCache\".*@<filterCache class=\"solr.FastLRUCache\" size=\"512\" initialSize=\"512\" autowarmCount=\"32\" />@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
 sed -i 's@<queryResultCache class=\"solr.LRUCache\".*@<queryResultCache class=\"solr.LRUCache\" size=\"512\" initialSize=\"512\" autowarmCount=\"32\" />@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/solr/ezp-default/conf/solrconfig.xml
 
+sed -i 's@solr.log=.*@solr.log=/var/log/@g' $RPM_BUILD_ROOT%{_datadir}/ezfind/resources/log4j.properties
+
 
 sed -i '
 /<\/fields>/ i\
