@@ -19,7 +19,6 @@ Conflicts: mod_ssl
 #Requires: libuuid-devel qemu-img
 Requires: httpd haproxy ntp nfs-utils nfs4-acl-tools sudo varnish autofs dkms
 Requires: selinux-policy yum-cron
-Requires: php
 # for veewee
 Requires: libxslt-devel
 Requires: varnish >= 4.0
