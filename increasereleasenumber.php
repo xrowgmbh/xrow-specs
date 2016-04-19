@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 
 if ( inreaserelease( $_SERVER["argv"][1] ) )
