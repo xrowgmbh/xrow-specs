@@ -28,13 +28,13 @@ mkdir -p $RPM_BUILD_ROOT/usr/share/magallanes
 wget https://github.com/xrowgmbh/Magallanes/archive/master.zip -O magallanes.zip
 unzip magallanes.zip
 mv Magallanes-master/* $RPM_BUILD_ROOT/usr/share/magallanes
-ln -sf /usr/share/magallanes/bin/mage ${RPM_BUILD_ROOT}/%{_bindir}
+ln -sf /usr/share/magallanes/bin/mage ${RPM_BUILD_ROOT}%{_bindir}
 rm -Rf magallanes.zip Magallanes-master
-rm -Rf $RPM_BUILD_ROOT/php-composer-1.0.1-1.x86_64
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
+%{_datadir}/*
 
 %post
 
