@@ -2,7 +2,7 @@
 Name: php-composer
 Summary: Composer for PHP
 Version: 1.0.1
-Release: 1
+Release: 2
 License: GPL
 Group: Applications/Webservice
 URL: http://packages.xrow.com/redhat
@@ -28,12 +28,13 @@ mkdir -p $RPM_BUILD_ROOT/usr/share/magallanes
 wget https://github.com/xrowgmbh/Magallanes/archive/master.zip -O magallanes.zip
 unzip magallanes.zip
 mv Magallanes-master/* $RPM_BUILD_ROOT/usr/share/magallanes
-ln -sf /usr/share/magallanes/bin/mage ${RPM_BUILD_ROOT}/%{_bindir}
+ln -sf /usr/share/magallanes/bin/mage ${RPM_BUILD_ROOT}%{_bindir}
 rm -Rf magallanes.zip Magallanes-master
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
+%{_datadir}/*
 
 %post
 
