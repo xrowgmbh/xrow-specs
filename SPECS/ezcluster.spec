@@ -9,7 +9,7 @@ Distribution: Linux
 Vendor: xrow GmbH
 Packager: Bjoern Dieding / xrow GmbH <bjoern@xrow.de>
 BuildRequires: libxslt subversion
-Requires: yum ezfind-solr
+Requires: yum
 Requires: mariadb-server mariadb
 # mlocate will crawl /mnt/nas
 Conflicts: mlocate
